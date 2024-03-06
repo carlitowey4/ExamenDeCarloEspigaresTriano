@@ -1,0 +1,21 @@
+extends layout
+   
+block content
+    h1 Mosaico
+    #container.row
+        each personaje in personajes
+            .col-md-2.mb-4
+                .card(style='width: 100%;')
+                    img.card-img-top(src=personaje.image alt='...')
+                    .card-body
+                        h4 ##{personaje.id} #{personaje.name}
+                        p #{personaje.gender}
+                        p #{personaje.created}
+                        a(href='/seq')
+                            form(action="/seq", method="post")
+                                input(type="hidden", name="id", value=personaje.id)
+                                input(type="hidden", name="name", value=personaje.name)
+                                input(type="hidden", name="gender", value=personaje.gender)
+                                input(type="hidden", name="image", value=personaje.image)
+                                input(type="hidden", name="created", value=personaje.created)
+                                button.btn.btn-warning(type="submit") Guardar en BD

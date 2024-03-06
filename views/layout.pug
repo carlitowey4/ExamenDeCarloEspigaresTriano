@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    title= title
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65' crossorigin='anonymous')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav.navbar.navbar-expand-lg.bg-light
+      .container-fluid
+        a.navbar-brand(href='/') [Alumno: Carlos Espigares Triano]
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.me-auto.mb-2.mb-lg-0
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                | Vistas
+              ul.dropdown-menu
+                li
+                  a.dropdown-item(href='/lista') Listado
+                li
+                  hr.dropdown-divider
+                li
+                  a.dropdown-item(href='/') Mosaico
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                | SQlite
+              ul.dropdown-menu
+                li
+                  a.dropdown-item(href='/seq') Leer guardados
+              li.nav-item.dropdown
+                a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                  | Ayuda
+                ul.dropdown-menu
+                  li
+                    a#acerca.dropdown-item Acerca De
+      #myModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true' data-bs-dismiss='modal')
+        .modal-dialog
+          .modal-content
+            .modal-header
+              h5#exampleModalLabel.modal-title Acerca de
+            .modal-body
+              | Examen de Node - Express (Marzo 2024)
+    block content
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4' crossorigin='anonymous')
+    script.
+      document.addEventListener('DOMContentLoaded', function() {
+        var acerca = document.getElementById('acerca');
+        acerca.addEventListener('click', function() {
+            var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+            myModal.show();
+        });
+      });

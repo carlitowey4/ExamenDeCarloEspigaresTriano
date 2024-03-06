@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .container
+    h1='Vista del personaje'
+    .row
+        .col-12.col-md-3
+            .card(style='width: 18rem')
+                img.card-img-top(src=personaje[0].image alt='Personaje de Rick y Morty')
+                .card-body
+                    h5.card-title ##{personaje[0].id} #{personaje[0].name}
+                        h6.card-subtitle.mb-2.text-muted #{personaje[0].gender}
+                        p.card-text
+                        | #{personaje[0].created}
+                        br 
+                        br
+                        a.card-link(href='/lista') Lista Completa
